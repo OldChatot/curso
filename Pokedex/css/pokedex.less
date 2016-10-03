@@ -1,0 +1,121 @@
+@rojoClaro: #ffe6e6;
+@moradoMedio: #993399;
+@moradoOscuro: #602060;
+@moradoOscuro2: #4d004d;
+@moradoClaro: #f2d9f2;
+@rosa1: #ff80aa;
+@azulClaro: #e6e6ff;
+.esquinas-redondeadas(@radio : 10px){
+	border-radius:@radio;
+ -webkit-border-radius:@radio;
+ -moz-border-radius:@radio;
+ -o-border-radius:@radio;
+}
+.textoSombreado (@color: @rojoClaro; @sombra: 1px 1px 0 #444){
+	color: @color;
+	text-shadow: @sombra;
+}
+.textoMediano {
+	font-size: 1.2em;
+}
+.textoGrande {
+	font-size: 1.3em;
+}
+.padding (@pad: 10px){
+	padding: @pad;
+}
+.capitalizar {
+	text-transform: capitalize;
+}
+.negrita {
+	font-weight: bold;
+}
+b {
+	font-style: italic;
+}
+a {
+	color: purple;
+}
+a:visited {
+	color: purple;
+}
+a:hover {
+	color: @moradoOscuro;
+}
+ul {
+	list-style: none;
+	.textoMediano;
+	line-height: 1em;
+}
+.pasaPagina {
+	border: 2px outset rgb(153, 51, 153, .7);
+	background-color: @moradoMedio;
+	.padding;
+	.esquinas-redondeadas;
+	.textoSombreado;
+}
+.pasaPagina:visited {
+	color: @rojoClaro;
+}
+.pasaPagina:hover {
+	border: 2px inset rgba(255, 255, 255, .25);
+	color: @azulClaro;
+}
+.barraNav {
+	.textoGrande;
+	color: @moradoMedio;
+	background: linear-gradient(@moradoOscuro2,navy);
+	box-shadow: 2px 2px 1px rgba(0, 0, 0, .5);
+	.padding;
+	.esquinas-redondeadas;
+	.busquedaPkmn {
+		display: inline-block;
+	    float: right;
+		color: #333;
+		label {
+			.textoSombreado;
+		}
+	}
+}
+.pestana {
+	display: inline;
+	background-color: @rojoClaro;
+	border: 1px inset @rosa1;
+	.esquinas-redondeadas(5px);
+	padding: 5px;
+}
+.pestana:visited {
+	color: purple;
+}
+.pestana:hover {
+	border: 1px outset white;
+	color: @moradoOscuro;
+}
+h1 {
+	color: @moradoOscuro;
+}
+body {
+	background-color: @moradoClaro;
+}
+.contenedor {
+	background-color: white;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);
+	.esquinas-redondeadas(5px);
+}
+.paddingLeft {
+	padding-left: 2em;
+}
+.titulo {
+	.textoSombreado(purple, 2px 2px 2px @azulClaro);
+	line-height: 1em;
+}
+.imagenes {
+	border-bottom: 1px solid black;
+	padding: 0.6em;
+}
+/*.dropdown {
+	display: none;
+	:hover {
+		display: inline;
+	}
+}*/
