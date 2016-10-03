@@ -1,0 +1,40 @@
+<h1 class="capitalizar">#{{pokemon.id}} {{pokemon.name | guionesFuera}}</h1><br>
+<div class="paddingLeft">
+	<p class="imagenes">
+		<ng-img class="" />
+		<ng-img class="shiny" />
+	</p><br>
+	<p><b>Tipos:</b> 
+		<span ng-repeat="tipo in listaTipos | orderBy:types:true">{{tipo.nombreEsp}}<span ng-if="pokemon.types == 1"> / </span>
+			<!-- <span class="capitalizar"><span ng-if="pokemon.types.length > 1">{{pokemon.types[1].type.name}} / </span>{{pokemon.types[0].type.name}}</span> -->
+		</span>
+	</p>
+	<h3>Movimientos</h3>
+		<div>
+		    <label>Orden:</label><br>
+		    <div>
+		      	<input type="radio" ng-value="false" ng-model="criterio.sentido" ng-checked="true"> Ascendente
+		    </div>
+	        <div>
+	        	<input type="radio" ng-value="true" ng-model="criterio.sentido"> Descendente
+	        </div><br>
+	        <p><label>Buscar por nombre: </label><br>
+	        	<input type="text" ng-model="filtro">
+	        </p><br>
+	   </div>
+	<table class="table-striped table-bordered">
+		<thead>
+			<th ng-click="criterio.columna = 'id'">ID</th>
+			<th ng-click="criterio.columna = 'nombreEsp'">Nombre</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="move in listaMoves | orderBy:criterio.columna:criterio.sentido | filter:filtro">
+				<td>{{move.indice}}</td>
+				<td>
+					<a href="#/move/{{move.indice}}">{{move.nombreEsp}}</a>
+				</td>
+			</tr>
+		</tbody>
+	</table><br>
+	<p class="text-center textoGrande textoMediano"><a class="pasaPagina" href="#/id/{{pokemon.id - 1}}" ng-hide="pokemon.id <= 1">< Página anterior</a> <span class="textoGrande">|</span> <a class="pasaPagina" href="#/id/{{pokemon.id + 1}}" ng-hide="pokemon.id >= 811">Página siguiente ></a></p><br>
+</div>	

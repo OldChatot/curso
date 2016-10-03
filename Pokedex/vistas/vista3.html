@@ -1,0 +1,45 @@
+
+<h1 class="capitalizar">{{move.names[2].name}} ({{move.names[0].name}})</h1>
+<div class="paddingLeft">
+	<h3>Generación de debut</h3>
+	<p class="capitalizar"><b>{{move.generation.name | guionesFuera}}</b></p>
+	<h3>Nombres en otros idiomas</h3>
+	<div>
+		<p><b>Inglés:</b> {{move.names[0].name}}</p>
+		<p><b>Italiano:</b> {{move.names[1].name}}</p>
+		<p><b>Español:</b> {{move.names[2].name}}</p>
+		<p><b>Alemán:</b> {{move.names[3].name}}</p>
+		<p><b>Francés:</b> {{move.names[4].name}}</p>
+		<p><b>Coreano:</b> {{move.names[5].name}}</p>
+		<p><b>Japonés:</b> {{move.names[6].name}}</p>
+	</div>
+	<h3>Estadísticas</h3>
+	<div>
+		<p><b>PP:</b> {{move.pp}}</p>
+		<p><b>Tipo:</b> <span ng-if="tipoAtaqueIng(move.type.name)">{{tipoAtaqueEsp}}</span></p>
+		<p><b>Tipo de poder:</b> <span ng-if="tipoPoderIng(move.damage_class.name)">{{tipoPoderEsp}}</span></p>
+		<p ng-if="move.meta.category.name == 'damage'"><b>Poder:</b> {{move.power}}</p>
+		<p ng-if="move.meta.category.name == 'damage'"><b>Probabilidad de crítico:</b> {{move.meta.crit_rate}}%</p>
+		<p ng-if="move.accuracy !== null"><b>Precisión:</b> {{move.accuracy}}%</p>
+		<p><b>Prioridad:</b> {{move.priority}}</p>
+		<p><b>Alcance:</b> <span ng-if="alcanceIng(move.target.name)">{{alcanceEsp}}</span></p>
+		<p><b>Efecto:</b> 
+			<span ng-if="move.stat_changes.length !== 0">
+				<span ng-if="move.stat_changes[0].change > 0">Aumenta </span>
+				<span ng-if="move.stat_changes[0].change < 0">Disminuye </span> 
+				<span class="negrita" ng-if="statsIng(move.stat_changes[0].stat.name)">{{statsEsp}}</span>
+					<span ng-if="move.stat_changes.length > 1"> y 
+						<span class="negrita" ng-if="statsIng(move.stat_changes[1].stat.name)">{{statsEsp}}</span>
+					</span>
+					 en {{move.stat_changes[0].change}} niveles.
+				</span>
+				<span ng-if="damage(move.meta.category.name)">Produce daño 
+					<span class="negrita" ng-if="tipoPoderIng(move.damage_class.name)">{{tipoPoderEsp}}</span>
+					 de tipo 
+					<span class="negrita" ng-if="tipoAtaqueIng(move.type.name)">{{tipoAtaqueEsp}}</span>. 
+					<span ng-if ="move.effect_chance !== null">Tiene una probabilidad del <span class="negrita">{{move.effect_chance}}%</span> de <span ng-if="move.meta.flinch_chance !== 0">que el objetivo <span class="negrita">retroceda</span></span><span ng-if="move.meta.ailment_chance !== 0"><span class="negrita" ng-if="cambioEstadoIng(move.meta.ailment.name)">{{cambioEstadoEsp}}</span> al objetivo</span>.</span>
+				</span>
+				<span ng-if="move.meta.ailment.name !== 'none' && damage(move.meta.category.name) == false">Puede <span class="negrita" ng-if="cambioEstadoIng(move.meta.ailment.name)">{{cambioEstadoEsp}}</span> al objetivo.</span>
+		</p>
+	</div><br>
+</div>

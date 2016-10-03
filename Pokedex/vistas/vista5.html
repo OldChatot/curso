@@ -1,0 +1,4 @@
+<ul ng-cambio-estilo ng-repeat="move in moves">
+	<li class="capitalizar negrita">{{move.id}}. <a ng-href="#/move/{{move.id}}">{{move.name | guionesFuera}}</a></li>
+</ul><br>
+<p class="text-center textoGrande textoMediano"><a class="pasaPagina" ng-click="$root.sentido1='atras'" href="#/moves/pagina/{{num1 - 1}}" ng-hide="$root.num1 < 1">< Página anterior</a> <span class="textoGrande">|</span> <a class="pasaPagina" ng-click="$root.sentido1='alante'" href="#/moves/pagina/{{num1 + 1}}">Página siguiente ></a></p><br>
