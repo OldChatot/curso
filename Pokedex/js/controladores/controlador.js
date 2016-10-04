@@ -445,15 +445,15 @@ var Ctrl = (function(){
 		var _img = function ($scope,$element,$attrs,$rootScope,$log,$http) { // Imágenes
 			$scope.idImgPkmn = $rootScope.spriteId;
 			if ($attrs.class == "shiny") { // Asigna unos atributos u otros según tenga o no la clase "shiny"
-				$element.find('div > img').attr({'src':"imagenes/pokemon/shiny/" + $scope.idImgPkmn + ".png"});
+				$element.find('div > img').attr({'src':"https://raw.githubusercontent.com/phalt/pokeapi/master/data/v2/sprites/pokemon/shiny/" + $scope.idImgPkmn + ".png"});
 				$element.find('div > div > i').html('Forma variocolor (shiny)');
 			}
 			else if ($attrs.class == "") {
-				$element.find('div > img').attr({'src':"imagenes/pokemon/" + $scope.idImgPkmn + ".png"});
+				$element.find('div > img').attr({'src':"https://raw.githubusercontent.com/phalt/pokeapi/master/data/v2/sprites/pokemon/" + $scope.idImgPkmn + ".png"});
 				$element.find('div > div > i').html('Forma normal');
 			}
 			else {
-				$element.find('div > img').attr({'src':"imagenes/pokemon/" + $scope.idImgPkmn + ".png"});
+				$element.find('div > img').attr({'src':"https://raw.githubusercontent.com/phalt/pokeapi/master/data/v2/sprites/pokemon/" + $scope.idImgPkmn + ".png"});
 			}
 		}
 		var _Links = (function(){ // Controladores especiales para modificar el DOM
